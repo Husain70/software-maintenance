@@ -20,7 +20,7 @@ Bug Fix: Added validation to prevent duplicate IDs.
 
 New Feature: Implemented the ability to remove a student by ID.
 
-Refactoring:
+# Refactoring:
 
 Renamed methods for clarity.
 
