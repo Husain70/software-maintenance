@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Student Management System
+ * 
+ * This program manages a list of students, providing functionality to add,
+ * display, search, and remove students by their unique ID.
+ */
 public class StudentManagementSystem {
+    // Inner class representing a student
     static class Student {
         int id;
         String name;
@@ -14,14 +21,15 @@ public class StudentManagementSystem {
         }
     }
 
+    // List to store student records
     static ArrayList<Student> students = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("\n--- Student Management System ---");
-            System.out.println("1. Add Student");
-            System.out.println("2. Display Students");
+            System.out.println("1. Add New Student");
+            System.out.println("2. Display All Students");
             System.out.println("3. Search Student by ID");
             System.out.println("4. Remove Student by ID");
             System.out.println("5. Exit");
@@ -29,8 +37,8 @@ public class StudentManagementSystem {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1 -> addStudent(scanner);
-                case 2 -> displayStudents();
+                case 1 -> addNewStudent(scanner);
+                case 2 -> displayAllStudents();
                 case 3 -> searchStudentById(scanner);
                 case 4 -> removeStudentById(scanner);
                 case 5 -> {
@@ -42,7 +50,13 @@ public class StudentManagementSystem {
         }
     }
 
-    static void addStudent(Scanner scanner) {
+    /**
+     * Adds a new student to the system.
+     * Checks for duplicate IDs before adding.
+     * 
+     * @param scanner Scanner object for user input.
+     */
+    static void addNewStudent(Scanner scanner) {
         System.out.print("Enter Student ID: ");
         int id = scanner.nextInt();
 
@@ -64,17 +78,29 @@ public class StudentManagementSystem {
         System.out.println("Student added successfully!");
     }
 
-    static void displayStudents() {
+    /**
+     * Displays all students in a formatted table.
+     * If no students are present, an appropriate message is displayed.
+     */
+    static void displayAllStudents() {
         if (students.isEmpty()) {
             System.out.println("No students found.");
             return;
         }
         System.out.println("\n--- Student List ---");
+        System.out.printf("%-10s %-20s %-5s%n", "ID", "Name", "Age");
+        System.out.println("------------------------------------");
         for (Student student : students) {
-            System.out.println("ID: " + student.id + ", Name: " + student.name + ", Age: " + student.age);
+            System.out.printf("%-10d %-20s %-5d%n", student.id, student.name, student.age);
         }
     }
 
+    /**
+     * Searches for a student by their ID.
+     * Displays the student's details if found.
+     * 
+     * @param scanner Scanner object for user input.
+     */
     static void searchStudentById(Scanner scanner) {
         System.out.print("Enter Student ID to search: ");
         int id = scanner.nextInt();
@@ -88,6 +114,12 @@ public class StudentManagementSystem {
         System.out.println("Student not found.");
     }
 
+    /**
+     * Removes a student by their ID.
+     * Displays an error message if the student is not found.
+     * 
+     * @param scanner Scanner object for user input.
+     */
     static void removeStudentById(Scanner scanner) {
         System.out.print("Enter Student ID to remove: ");
         int id = scanner.nextInt();
