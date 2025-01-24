@@ -1,18 +1,29 @@
-## Getting Started
+## Student Management System
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This Java-based program helps manage student records efficiently. Users can add, display, search, and remove students by their unique ID.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+Add New Student: Prevents duplicate IDs.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Display All Students: Shows a neatly formatted list.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Search Student by ID: Retrieves and displays details of a student.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Remove Student by ID: Deletes a student record with proper feedback.
 
-## Dependency Management
+Exit: Safely exits the program.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Maintenance Summary
+
+Bug Fix: Added validation to prevent duplicate IDs.
+
+New Feature: Implemented the ability to remove a student by ID.
+
+# Refactoring:
+
+Renamed methods for clarity.
+
+Improved output formatting for better readability.
+
+Added meaningful comments for better maintainability.
