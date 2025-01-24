@@ -23,7 +23,8 @@ public class StudentManagementSystem {
             System.out.println("1. Add Student");
             System.out.println("2. Display Students");
             System.out.println("3. Search Student by ID");
-            System.out.println("4. Exit");
+            System.out.println("4. Remove Student by ID");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
 
@@ -31,7 +32,8 @@ public class StudentManagementSystem {
                 case 1 -> addStudent(scanner);
                 case 2 -> displayStudents();
                 case 3 -> searchStudentById(scanner);
-                case 4 -> {
+                case 4 -> removeStudentById(scanner);
+                case 5 -> {
                     System.out.println("Exiting...");
                     return;
                 }
@@ -43,6 +45,15 @@ public class StudentManagementSystem {
     static void addStudent(Scanner scanner) {
         System.out.print("Enter Student ID: ");
         int id = scanner.nextInt();
+
+        // Check if the ID already exists in the list
+        for (Student student : students) {
+            if (student.id == id) {
+                System.out.println("Error: A student with ID " + id + " already exists.");
+                return;
+            }
+        }
+
         System.out.print("Enter Student Name: ");
         scanner.nextLine(); // Consume newline
         String name = scanner.nextLine();
@@ -75,5 +86,19 @@ public class StudentManagementSystem {
             }
         }
         System.out.println("Student not found.");
+    }
+
+    static void removeStudentById(Scanner scanner) {
+        System.out.print("Enter Student ID to remove: ");
+        int id = scanner.nextInt();
+
+        for (Student student : students) {
+            if (student.id == id) {
+                students.remove(student);
+                System.out.println("Student with ID " + id + " removed successfully!");
+                return;
+            }
+        }
+        System.out.println("Error: Student with ID " + id + " not found.");
     }
 }
