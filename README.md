@@ -1,8 +1,8 @@
-##Student Management System
+## Student Management System
 
 This Java-based program helps manage student records efficiently. Users can add, display, search, and remove students by their unique ID.
 
-##Features
+## Features
 
 Add New Student: Prevents duplicate IDs.
 
@@ -14,7 +14,7 @@ Remove Student by ID: Deletes a student record with proper feedback.
 
 Exit: Safely exits the program.
 
-##Maintenance Summary
+## Maintenance Summary
 
 Bug Fix: Added validation to prevent duplicate IDs.
 
